@@ -15,36 +15,42 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <form>
+                <form id="formulario">
                     <fieldset>
-                        <legend><b>Añadir Animal</b></legend>
+                        <legend><b>Añadir Figura</b></legend>
                         <div class="mb-3">
-                            <label for="nombre" class="form-label"><b>Nombre:</b></label>
-                            <input type="text" id="nombre" class="form-control" placeholder="Ingrese el nombre del animal">
-                        </div>
-                        <div class="mb-3">
-                            <label for="select" class="form-label"><b>Raza:</b></label>
-                            <select id="raza" class="form-select">
-                                <option selected>Seleccione su raza</option>
-                                <option>Perro</option>
-                                <option>Gato</option>
+                            <label for="figura" class="form-label"><b>Figura:</b></label>
+                            <select id="figura" class="form-select">
+                                <option selected>Figura</option>
+                                <option value="1">Circulo</option>
+                                <option value="2">Rectangulo</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="edad" class="form-label"><b>Edad:</b></label>
-                            <input type="number" id="edad" class="form-control" placeholder="Ingrese la edad del animal">
+                        <div class="mb-3" id="formColor">
+                            <label for="color" class="form-label"><b>Color:</b></label>
+                            <input type="text" id="color" class="form-control" placeholder="Ingrese el color de la figura">
                         </div>
-                    <button type="submit" class="btn btn-dark" id="btnSonido">Hacer Sonido</button>
-                    <button type="submit" class="btn btn-dark" id="btnMover">Mover cola</button>
+                        <div class="mb-3" id="formRadio" style="display: none;">
+                            <label for="radio" class="form-label"><b>Radio:</b></label>
+                            <input type="text" id="radio" class="form-control" placeholder="Ingrese radio del circulo">
+                        </div>
+                        <div class="mb-3" id="formLargo" style="display: none;">
+                            <label for="largo" class="form-label"><b>Largo:</b></label>
+                            <input type="text" id="largo" class="form-control" placeholder="Ingrese el Largo del rectangulo">
+                        </div>
+                        <div class="mb-3" id="formAncho" style="display: none;">
+                            <label for="ancho" class="form-label"><b>Ancho:</b></label>
+                            <input type="text" id="ancho" class="form-control" placeholder="Ingrese el Ancho del rectangulo">
+                        </div>
+
+                    <button type="submit" class="btn btn-dark" id="btnCalcular">Calcular</button>
+
                     </fieldset>
                 </form>
             </div>
         </div>
         <div class="row">
             <div class="col-6" id="tarjeta" style="padding-top: 20px;">
-
-            </div>
-            <div class="col-6" id="tarjeta2" style="padding-top: 20px;">
 
             </div>
         </div>
