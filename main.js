@@ -45,8 +45,6 @@ class Persona {
     }
 }
 
-const btnSaludar = document.querySelector("#btnSaludar");
-
 document.addEventListener("click", (e) => {
     e.preventDefault();
     let nombre1 = document.getElementById("nombre").value;
