@@ -1,12 +1,11 @@
-// EJERCICIO #1
+// EJERCICIO #2
 
 //CLASE PRINCIPAL
 
-class Persona {
-    constructor({ nombre, edad, sexo }) {
+class Animal {
+    constructor({ nombre, edad }) {
         this.nombre = nombre;
         this.edad = edad;
-        this.sexo = sexo;
     }
 
     set setNombre(nombre) {
@@ -21,27 +20,14 @@ class Persona {
     get getEdad() {
         return this.edad;
     }
-    set setSexo(sexo) {
-        this.sexo = sexo;
-    }
-    get getSexo() {
-        return this.sexo;
-    }
 
-    static saludar(nombre, edad, sexo) {
+    static hacerSonido(nombre, edad) {
         return document.querySelector("#tarjeta").innerHTML = `<div class="card text-bg-light mb-3" style="max-width: 18rem;">
         <div class="card-header"><h5>${nombre}</h5></div>
         <div class="card-body">
-        <p class="card-text">Hola me llamo ${nombre}, soy ${sexo} y tengo ${edad} años</p>
+        <p class="card-text">El animal ${nombre} de ${edad} años hizo un sonido</p>
         </div>
         </div>`
-    }
-    static esMayorDeEdad(edad) {
-        if (edad >= 18) {
-            return true
-        } else {
-            return false
-        }
     }
 }
 
@@ -49,37 +35,35 @@ document.addEventListener("click", (e) => {
     e.preventDefault();
     let nombre1 = document.getElementById("nombre").value;
     let edad1 = document.getElementById("edad").value;
-    let sexo1 = document.getElementById("sexo").value;
-    let carrera1 = document.getElementById("carrera").value;
-    if (e.target.id == 'btnSaludar') {
-        const persona1 = new Persona({ nombre: nombre1, edad: edad1, sexo: sexo1 })
-        Persona.saludar(persona1.getNombre, persona1.getEdad, persona1.getSexo);
-        console.log(Persona.esMayorDeEdad(persona1.edad));
-    } else if (e.target.id =="btnEstudiar"){
-        const estudiante1 = new Estudiante({ nombre: nombre1, edad: edad1, sexo: sexo1, carrera: carrera1 });
-        Estudiante.estudiar(estudiante1.nombre, estudiante1.edad, estudiante1.sexo, estudiante1.carrera);
-        console.log(Persona.esMayorDeEdad(estudiante1.edad));
+    let raza1 = document.getElementById("raza").value;
+    if (e.target.id == 'btnSonido') {
+        const animal1 = new Animal({ nombre: nombre1, edad: edad1 })
+        Animal.hacerSonido(animal1.getNombre, animal1.getEdad);
+    } else if (e.target.id == "btnMover") {
+        const perro1 = new Perro({ raza:raza1 });
+        Perro.moverCola(perro1.raza);
     }
 });
 
-// CLASE ESTUDIANTE
+// CLASE PERRO
 
-class Estudiante extends Persona {
-    constructor({ nombre, edad, sexo, carrera }) {
-        super({ nombre, edad, sexo });
-        this.carrera = carrera;
+class Perro extends Animal {
+    constructor({nombre, edad, raza}) {
+        super({nombre, edad})
+        this.raza = raza;
     }
-    set setCarrera(carrera) {
-        this.carrera = carrera;
+    set setRaza(raza) {
+        this.raza = raza;
     }
-    get getCarrera() {
-        return this.carrera;
+    get getRaza() {
+        return this.raza;
     }
-    static estudiar(nombre, edad, sexo, carrera) {
+
+    static moverCola(raza) {
         return document.querySelector("#tarjeta2").innerHTML = `<div class="card text-bg-light mb-3" style="max-width: 18rem;">
-        <div class="card-header"><h5>${nombre}</h5></div>
+        <div class="card-header"><h5>${raza}</h5></div>
         <div class="card-body">
-        <p class="card-text">Hola me llamo ${nombre}, soy ${sexo}, tengo ${edad} años y estudié ${carrera}</p>
+        <p class="card-text">El ${raza} está moviendo la cola.</p>
         </div>
         </div>`
     }
